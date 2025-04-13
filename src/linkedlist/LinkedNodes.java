@@ -6,6 +6,8 @@ public class LinkedNodes<T> {
     private Node<T> head=null;
     private Node<T> tail=null;
 
+    
+    public LinkedNodes(){}
     public LinkedNodes( T... args){
         for(T el:args){
             Node<T> newest=new Node<>(el);
