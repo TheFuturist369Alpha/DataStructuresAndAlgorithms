@@ -1,14 +1,14 @@
 package linkedlist;
 
-public class LinkedNodes<T> {
+public class LinearList<T> {
 
     private int size=0;
     private Node<T> head=null;
     private Node<T> tail=null;
 
     
-    public LinkedNodes(){}
-    public LinkedNodes( T... args){
+    public LinearList(){}
+    public LinearList(T... args){
         for(T el:args){
             Node<T> newest=new Node<>(el);
             if(head==null){
@@ -26,9 +26,13 @@ public class LinkedNodes<T> {
         return size;
     }
     public T first(){
+        if(size()==0)
+         return null;
         return head.getObj();
     }
     public T last(){
+        if(size()==0)
+            return null;
         return tail.getObj();
     }
 
