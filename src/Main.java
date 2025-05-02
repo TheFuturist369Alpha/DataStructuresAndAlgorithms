@@ -12,6 +12,10 @@ public class Main {
 
         System.out.println(list.getFirst());
         System.out.println(list.getLast());
+        list.rotate();
+        System.out.println(list.getFirst());
+        System.out.println(list.getLast());
+
 
 
 

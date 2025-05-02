@@ -11,32 +11,29 @@ public class CircularList<T> {
         return size;
     }
 
-    public void addLast(T item){
-        if(head==null){
-            head=new Node<>(item);
-            tail=head;
-            tail.next=head;
+    public void addFirst(T item){
+        if(tail==null){
+            tail=new Node<>(item);
+            tail.next=tail;
             size++;
         }
         else{
+            Node<T> next=tail.next;
             tail.next=new Node<>(item);
-            tail=tail.next;
-            tail.next=head;
+            tail.next.next=next;
             size+=1;
         }
     }
 
-    public void addFirst(T item){
-        if(head==null){
-            head=new Node<>(item);
-            tail=head;
-            tail.next=head;
+    public void addLast(T item){
+        if(tail==null){
+            tail=new Node<>(item);
+            tail.next=tail;
             size++;
         }
         else{
-            tail.next=new Node<>(item);
-            tail.next.next=head;
-            head=tail.next;
+           Node<T> last=new Node<>(item).next=tail;
+            tail=last;
             size++;
         }
     }
@@ -46,28 +43,32 @@ public class CircularList<T> {
             System.out.println("List empty");
             return;
         }
-        tail.next=head.next;
-        head=head.next;
+
+        Node<T> rfirst=tail.next.next;
+        tail.next=null;
+        tail.next=rfirst;
+
         size--;
 
 
     }
-    public T getLast(){
-        if(head==null){
-            System.out.println("list empty");
-            return null;
-        }
 
-        return tail.getObj();
+    public void rotate(){
+        if(tail!=null)
+            tail=tail.next;
+    }
+    public T getLast(){
+        if(!(tail==null))
+            return tail.getObj();
+        return null;
+
+
     }
 
     public T getFirst(){
-        if(head==null){
-            System.out.println("list empty");
-            return null;
-        }
-
-        return head.getObj();
+        if(!(tail==null))
+            return tail.next.getObj();
+        return null;
     }
 
 
