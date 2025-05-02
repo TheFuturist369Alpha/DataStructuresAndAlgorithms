@@ -10,11 +10,13 @@ public class Main {
             list.addFirst(i);
         }
 
+        list.removeFirst();
         System.out.println(list.getFirst());
         System.out.println(list.getLast());
         list.rotate();
         System.out.println(list.getFirst());
         System.out.println(list.getLast());
+
 
 
 

@@ -39,16 +39,18 @@ public class CircularList<T> {
     }
 
     public void removeFirst(){
-        if(head==null){
+        if(tail!=null){
+            Node<T> rfirst=tail.next.next;
+            tail.next=null;
+            tail.next=rfirst;
+
+            size--;
+        }
+        else {
             System.out.println("List empty");
-            return;
         }
 
-        Node<T> rfirst=tail.next.next;
-        tail.next=null;
-        tail.next=rfirst;
 
-        size--;
 
 
     }
